@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'hello',
+    'next_app',
+    'links',
+    'inheritance',
 ]
 
 MIDDLEWARE = [
