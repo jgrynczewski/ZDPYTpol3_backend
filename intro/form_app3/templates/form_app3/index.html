@@ -6,5 +6,13 @@
 </head>
 <body>
     <h3>Moja lista zadań:</h3>
+    <ul>
+    {% for task in tasks %}
+        <li>
+            <a href="{% url 'form3:update' task.id %}">{{ task }}</a>
+            <form action="{% url 'form3:delete' task.id %}" method="POST" style="display:inline;">{% csrf_token %}<input type="submit" value="Usuń"></form>
+        </li>
+    {% endfor %}
+    </ul>
 </body>
 </html>
