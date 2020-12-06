@@ -5,8 +5,26 @@
     <title>Owoce</title>
 </head>
 <body>
+
+    {% comment %}
+        {{ len(fruits) }}
+    {% endcomment %}
+
+    <p>{{ fruits|length }}</p>
+    <p>{{ fruits|join:" - " }}</p>
+    <p>{{ fruits|length|add:"2" }}</p>
+
     {% for fruit in fruits %}
-        <h3>{{ fruit }}</h3>
+
+        <!--        <h3>{{ forloop.counter }} {{ fruit }}</h3>-->
+        <h3>{{ forloop.counter0 }} {{ fruit }}</h3>
+        <!--        {{ forloop.first }}-->
+        <!--        <h3>{{ fruit|upper }}</h3>-->
+        <!--        <h3>{{ fruit|capfirst }}</h3>-->
+        <!--        <h3>{{ fruit|cut:"a" }}</h3>-->
     {% endfor %}
+
+    {{ fruits.1 }}
+
 </body>
 </html>

@@ -6,7 +6,8 @@
 </head>
 <body>
 
-    <form action="{% url 'form3:index' %}">
+    <form action="{% url 'form3:index' %}" method="POST">
+        {% csrf_token %}
         <input type="text" name="task">
         <input type="submit" value="Zarejestruj">
     </form>

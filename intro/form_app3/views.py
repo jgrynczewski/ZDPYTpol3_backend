@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_http_methods
+from django.shortcuts import HttpResponseRedirect
+from django.urls import reverse
 
 from form_app3.models import Task
 
@@ -10,9 +12,11 @@ from form_app3.models import Task
 def index(request):
     tasks = Task.objects.all()
 
-    task = request.GET.get('task')
+    task = request.POST.get('task')
     if task:
         Task.objects.create(text=task)
+
+        return HttpResponseRedirect(reverse("form3:index"))
 
     return render(request, 'form_app3/index.html', {"tasks": tasks})
 
@@ -30,7 +34,10 @@ def update(request, task_id):
         task.text = updated_task_text
         task.save()
 
-        return redirect("form3:index")
+        tasks = Task.objects.all()
+
+        # return redirect("form3:index")
+        return HttpResponseRedirect(reverse("form3:index"))
 
     return render(request, "form_app3/update.html", {"task": task})
 
