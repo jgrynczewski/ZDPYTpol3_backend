@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'form_app3',
     'form_app4',
     'class_app',
+    'auth_intro',
 ]
 
 MIDDLEWARE = [
